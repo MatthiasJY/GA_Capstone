@@ -4,6 +4,8 @@ Capstone project that I did for my final submission at General Assembly Data Ana
 ## Problem Statement 
 An E-commerce company is looking to attract new customers to shop on their online marketplace. After some internal investigation and research, the upper management of the company concluded that they would need a new personalised shopping experience for each customer, and also a more personalised or localised marketing when it comes to the products themselves. 
 
+<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZThwaGxuc3ZmZTd5ZWoyb25kcXdkaWljbDI2ZDB3aHVtdTN4cHYwZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QAVfJ35dd0GT5v1mCZ/giphy-downsized-large.gif" width="50" height="70" />
+
 ## Project Objective 
 The main objective of this project is to successfully solve the company’s problems with a prediction model that can aid in the personalisation and localisation of a customer’s shopping experience and product’s marketing plan. 
 
