@@ -1,29 +1,20 @@
-## GA_Capstone
-Capstone project that I did for my final submission at General Assembly Data Analyst Bootcamp
+![capstone_proj](https://github.com/user-attachments/assets/0b408437-10ef-48d4-9050-995c24e93df5)
 
-## Problem Statement 
+## Capstone Project Introduction
 An E-commerce company is looking to attract new customers to shop on their online marketplace. After some internal investigation and research, the upper management of the company concluded that they would need a new personalised shopping experience for each customer, and also a more personalised or localised marketing when it comes to the products themselves. 
 
-<img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZThwaGxuc3ZmZTd5ZWoyb25kcXdkaWljbDI2ZDB3aHVtdTN4cHYwZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QAVfJ35dd0GT5v1mCZ/giphy-downsized-large.gif" width="50" height="70" />
-
 ## Project Objective 
-The main objective of this project is to successfully solve the company’s problems with a prediction model that can aid in the personalisation and localisation of a customer’s shopping experience and product’s marketing plan. 
-
-## Target Audience
-The target audience for this project would be Business Decision Makers who are looking to make data driven business decisions for their company. It is for people who believe in the power of data and are looking to plan and strategise based on that.    
-
-Persona 1: Tom, Head of Marketing 
-Tom Lee, a new in charge of the marketing department in this e-commerce company, was given the task by the C-suites to look into personalised and localised marketing in view of the upcoming customer acquisition campaign. Tom has always believed that working with data is essential for any marketing plan, and machine learning is the way forward. Tom struggles to introduce this new way of strategising that's heavy on Big Data, and wants to show his team and company’s management the efficacy and benefits of implementing them into their daily work process.       
-
-Persona 2: Arthur, Head of Customer Experience 
-Arthur Francisco has been the Head of Customer Experience for 5 years now and has been a long time employee, climbing the ranks for the past 10 years. He is used to the old ways of doing things, but has always been interested in upskilling to  keep up with modern times. He recently learned about machine learning and coding and would like to see how it can be implemented in his daily tasks. He is open minded, and eager to learn and be exposed to new ideas, but would need some convincing.   
+The main objective of this project is to successfully solve the company’s problems with a machine learning model that can aid in the personalisation and localisation of a customer’s shopping experience and product’s marketing plan. 
 
 ## Data Source 
 Kaggle - https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 ## Data Processing 
-Data Cleaning 
-All data used has been cleaned and cleared of null values. As product category names were all in Portuguese, language has been translated to English for easier analysis. After that, it was merged with the products table. Products, Items, and Orders tables were merged as well to analyse the data further, and use them in the prediction models. 
+Data were cleaned with Python on Jupyter Notebook
+- All data used has been cleaned and cleared of null values.
+- As product category names were all in Portuguese, language has been translated to English for easier analysis.
+- After that, it was merged with the products table.
+- Products, Items, and Orders tables were merged as well to analyse the data further, and use them in the prediction models. 
 
 ## Insights 
 ![](transaction_trend.png)
