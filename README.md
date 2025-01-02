@@ -1,7 +1,7 @@
 ![capstone_proj](https://github.com/user-attachments/assets/0b408437-10ef-48d4-9050-995c24e93df5)
 
 ## Capstone Project Introduction
-An E-commerce company is looking to attract new customers to shop on their online marketplace. After some internal investigation and research, the upper management of the company concluded that they would need a new personalised shopping experience for each customer, and also a more personalised or localised marketing when it comes to the products themselves. 
+An E-commerce company is looking to **attract new customers** to shop on their online marketplace. After some internal investigation and research, the upper management of the company concluded that they would need a new personalised shopping experience for each customer, and also a more personalised or localised marketing for each product and state. 
 
 ## Project Objective 
 The main objective of this project is to successfully solve the company’s problems with a machine learning model that can aid in the personalisation and localisation of a customer’s shopping experience and product’s marketing plan. 
@@ -15,9 +15,9 @@ Raw data were cleaned with Python on Jupyter Notebook
 - Products category names were all in Portuguese, thus language was translated to English through merging of Products and Translation table
 - Products, Items, and Orders tables were merged as well to provide further analysis, and for preparation of machine learning model usage
 
-## Data Insights 
+## Data Insights (Tableau)
 ![](transaction_trend.png)
-This graph shows the trend of total transaction value and total orders of the top 10 products from 2017 Jan - 2018 Aug. The trend is **moving upwards** as the months past, and **sharp spikes in transaction value and orders** can be seen as well, especially during **November 2017** and **February 2018**. This seems to be aligned with the festive season of **Black Friday, Christmas, and Valentines’ day**, suggesting that their customers shopped the most during these seasons, and the team has to be ready for it.<br/>
+This graph shows the trend of total transaction value and total orders of the top 10 products from 2017 Jan - 2018 Aug. The trend is **moving upwards** as the months past, and **sharp spikes in transaction value and orders** can be seen as well, especially during **November 2017** and **February 2018**. This seems to be aligned with the festive season of **Black Friday, Christmas, and Valentines’ day**, suggesting that their customers shopped the most during these seasons, and the company has to be ready for it.<br/>
 
 <br/>
 <br/>
@@ -30,37 +30,51 @@ This map below shows the total order value (Left), and average delivery time (Ri
 ### Prophet
 
 ![](prophet_dash_viz.png)
-A time series forecasting model was built to be able to predict the sales of a selected product, for a particular state, 6 months in advance. Prophet was used as the time series model as it deals with missing data better than other time series models.
+The time series forecasting model was visualised using Dash and Plotly in my Jupyter Notebook. 
 
-This model was built by grouping the dataset by the months, followed by each product category and state that each customer lives in. The price paid by each customer was also aggregated to find the total spends on each product, and thus the total revenue for the brand. Customer state was used as an external factor that can influence the forecast as the spendings of each state is different.
+It is able to predict the sales of a selected product, for a particular state, 6 months in advance. Prophet was used as it deals with missing data better than other time series models like ARIMA.
 
-Please view full steps and code in the [Jupyter Source File.](https://github.com/MatthiasJY/GA_Capstone/blob/main/Capstone%20Prophet%20Forecasting%20Code.ipynb)
+**Method:**
+- This model was built by grouping the dataset by the Months, Product Category and State
+- The price paid by each customer was aggregated to find the total spends on each product, and thus the total revenue for the brand
+- State was used as a regressor that can influence the forecast as the spendings of each state is different
 
 **Success Rate of Model**<br/>
-In terms of the success of the model, it achieved its set criteria to get a low RMSE. As compared to the mean value, RMSE is 77.10% lower than the mean. This suggests that the predictions are close to the actual values. R2 on the other hand, is negative which means that the predicted values are also random. However, as the dataset only has 22 months of data and different missing values for each product category, the model is greatly limited by these factors.
+This model achieved a low RMSE as compared to the mean value (**77.10% lower**). This suggests that the predictions are close to the actual values. R2 on the other hand, is negative, suggesting that the predicted values are also random. However, the dataset only has about 20 months of data, and different missing Months for each product category. Thus, the accuracy is limited by these factors.
+
+Please view full steps and code in the [Jupyter Source File.](https://github.com/MatthiasJY/GA_Capstone/blob/main/Capstone%20Prophet%20Forecasting%20Code.ipynb)
 
 ### Collaborative Filtering Recommendation System
 
 ![](collab_filtering_results.png)
-A Recommendation System was created as well with the Collaborative Filtering method to recommend up to 5 product categories for each unique customer by comparing with other customers that are closest in terms of similarity.
+The Recommendation System recommended Telephone, Computers Accessories, and Auto product categories for Customer f7ea4eef770a388bd5b225acfc546604.
 
-The similarity score is measured based on the customers reviews and state that they live in. Higher ratings for the reviews like 4 or 5, were emphasised more than lower ratings like 1 or 2. Customers within the same state also produced a higher similarity score than customers from different states. This is so that the model can suggest accurately. 
+The Collaborative Filtering method was built to recommend up to 5 Product Categories for each unique customer by comparing with other customers that are closest in terms of Similarity Score.
+
+**Method:**
+- Scaling was done to Product Ratings so that higher ratings like 4 or 5, were emphasised more than lower ratings like 1 or 2
+- Customers within the same state also produced a higher Similarity Score than customers from different states
+- Product Ratings score and State score were combined for the final Weighted score to be included into the User Item Matrix
+- Similarity matrix was created with the User Item Matrix
+- Recommended categories function was created with a Customer Id input, Similarity dataframe, Customer Table, and selected number of outputs
+
+**Success Rate of Model**<br/>
+This model has a **Precision and Recall score of 0.60 and 0.95** respectively. This shows that the model is highly comprehensive and rarely misses relevant product categories (0.95 Recall) but, has some irrelevant product categories that are also included (0.60 Precision). Customers will likely see many relevant product categories which is good for overall sales.
 
 Please view full steps and code in the [Jupyter Source File.](https://github.com/MatthiasJY/GA_Capstone/blob/main/Capstone%20Recommendation%20System%20Code.ipynb)
 
-**Success Rate of Model**<br/>
-In terms of the success of this model, it is a great success as the Precision and Recall score are both within the success criteria. The 0.60 Precision suggests that the model is relatively good at recommending items that are relevant, but 40% of the recommended items are irrelevant. On the other hand, the 0.95 Recall suggests that the model is very good at recommending most of the items that are relevant to the user. It misses only about 5% of the relevant items, which means it's quite comprehensive in its recommendations. 
-
 ## Limitations 
 
-The limitations of this model would be the small size of the dataset, and inevitable missing data for Prophet. As it is a forecasting model based on time series, it would only perform well with an adequate number of “time”. As this data only recorded about 1.5 years, it was not enough to produce an accurate result.
+The limitations of the Prophet model would be the **lack of "time" of the dataset** and **missing data**. The forecasting model performs well with an adequate amount of “time”. However, this data only recorded about 1.5 years, and thus, was not enough to produce an accurate result.
 
-Limitations for the Collaborative Filtering model would be the high intensity in computing processing needed to run a bigger model. This is because it is highly intensive to run a matrix of 100,000 by 100,000 for example, even though it would be more accurate. 
+The limitations for the Collaborative Filtering model would be the **high intensity in computer processing** needed to run a bigger model. This is because it is highly intensive to run a matrix of 100,000 by 100,000 for example, even though it would be more accurate. 
 
 ## Recommendations 
-In conclusion, we recommend this e-commerce brand to make use of the Prophet model and Collaborative Filtering model to achieve their goal of localising marketing strategies and personalising customer experiences. 
+In conclusion, I recommend this E-commerce company to make use of the Prophet model and Collaborative Filtering model to achieve their goal of localising marketing strategies and personalising customer experiences. 
 
-The Prophet model helps them know how each product category is predicted to perform in terms of total revenue 6 months into the future, and how it differs from each individual state as well. 
+The Prophet model helps them know how each product category is predicted to perform in terms of total transaction value 6 months into the future, differing by state as well. This will **prevent generic marketing plans**, but rather, one that is based on predicted sales.
 
-The Collaborative Filtering model integrated into the e-commerce website will allow for a more personalised customer experience. This new shopping experience only benefit existing customers as it's a new and novel feature, but also attract new customers as it is an experience that they are searching for. 
+The Collaborative Filtering model integrated into the e-commerce website will allow for a more personalised customer experience. This new shopping experience benefits both existing and new customers as it's a new and novel feature, that is value adding in **recommending relevant products**.
 
+## Final Statement
+Feel free to down load the dataset from Kaggle and test it out with the Jupyter Source Files provided. Do let me know if there are other ways to improve on these models as well. Thank you!
