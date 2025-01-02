@@ -34,7 +34,7 @@ A time series forecasting model was built to be able to predict the sales of a s
 
 This model was built by grouping the dataset by the months, followed by each product category and state that each customer lives in. The price paid by each customer was also aggregated to find the total spends on each product, and thus the total revenue for the brand. Customer state was used as an external factor that can influence the forecast as the spendings of each state is different.
 
-Please view full steps and code in the [Jupyter Source File.](./Capstone_Prophet_Forecasting_Code.ipynb)
+Please view full steps and code in the [Jupyter Source File.](https://github.com/MatthiasJY/GA_Capstone/blob/main/Capstone%20Prophet%20Forecasting%20Code.ipynb)
 
 **Success Rate of Model**<br/>
 In terms of the success of the model, it achieved its set criteria to get a low RMSE. As compared to the mean value, RMSE is 77.10% lower than the mean. This suggests that the predictions are close to the actual values. R2 on the other hand, is negative which means that the predicted values are also random. However, as the dataset only has 22 months of data and different missing values for each product category, the model is greatly limited by these factors.
@@ -46,7 +46,7 @@ A Recommendation System was created as well with the Collaborative Filtering met
 
 The similarity score is measured based on the customers reviews and state that they live in. Higher ratings for the reviews like 4 or 5, were emphasised more than lower ratings like 1 or 2. Customers within the same state also produced a higher similarity score than customers from different states. This is so that the model can suggest accurately. 
 
-Please view full steps and code in the [Jupyter Source File.](./Capstone_Recommendation_System_Code.ipynb)
+Please view full steps and code in the [Jupyter Source File.](https://github.com/MatthiasJY/GA_Capstone/blob/main/Capstone%20Recommendation%20System%20Code.ipynb)
 
 **Success Rate of Model**<br/>
 In terms of the success of this model, it is a great success as the Precision and Recall score are both within the success criteria. The 0.60 Precision suggests that the model is relatively good at recommending items that are relevant, but 40% of the recommended items are irrelevant. On the other hand, the 0.95 Recall suggests that the model is very good at recommending most of the items that are relevant to the user. It misses only about 5% of the relevant items, which means it's quite comprehensive in its recommendations. 
